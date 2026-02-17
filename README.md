@@ -6,7 +6,7 @@
 ```
 ## Run test in Docker
 ```bash
- docker run --rm ai-assignment
+docker build -t test . && docker run --rm test
 ```
 
 

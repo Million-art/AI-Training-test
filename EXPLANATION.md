@@ -11,6 +11,6 @@ Why does My  fix solve it?
 
 We now refresh when the token is missing, not an OAuth2Token instance, or expired. Any plain object triggers a refresh. the new instance is then used for the header.
 
-One realistic case my  tests still don't cover
+One realistic case tests still don't cover
 
-Reusing the same opts.headers object across multiple request() calls. The tests do not check that the caller's object is left unchanged (i.e. that we do not mutate opts.headers).
+When the token is an OAuth2Token instance but already expired (expiresAt in the past). The logic refreshes in that case, but the tests do not assert this path—e.g. that the client uses the new token for the Authorization header.
