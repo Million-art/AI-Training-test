@@ -14,7 +14,6 @@ export class HttpClient {
     opts?: { api?: boolean; headers?: Record<string, string> }
   ): { method: string; path: string; headers: Record<string, string> } {
     const api = opts?.api ?? false;
-  //const headers = opts?.headers ?? {}; // BUG: missing spread operator  
     const headers = { ...(opts?.headers ?? {}) };
 
     if (api) {
